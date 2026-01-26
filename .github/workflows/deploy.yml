@@ -29,21 +29,17 @@ jobs:
           rm -rf node_modules
           rm -rf .cache
           rm -rf public
-          npm ci --legacy-peer-deps
+          npm install --legacy-peer-deps
 
       - name: Clean Gatsby cache
-        run: npm run clean || echo "Clean completed (may have warnings)"
+        run: |
+          npm run clean || echo "Clean completed (may have warnings)"
+          echo "Cache cleaned"
 
       - name: Build
         run: |
           echo "Starting Gatsby build with prefix-paths..."
-          npx gatsby build --prefix-paths || {
-            echo "Build failed! Checking for errors..."
-            if [ -f build.log ]; then
-              cat build.log
-            fi
-            exit 1
-          }
+          npx gatsby build --prefix-paths
         env:
           NODE_ENV: production
           CI: false
