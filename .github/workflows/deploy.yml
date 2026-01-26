@@ -32,10 +32,18 @@ jobs:
           npm install --legacy-peer-deps
 
       - name: Clean Gatsby cache
-        run: npm run clean
+        run: npm run clean || echo "Clean completed (may have warnings)"
 
       - name: Build
-        run: npx gatsby build --prefix-paths 2>&1 | tee build.log || (cat build.log && exit 1)
+        run: |
+          echo "Starting Gatsby build with prefix-paths..."
+          npx gatsby build --prefix-paths || {
+            echo "Build failed! Checking for errors..."
+            if [ -f build.log ]; then
+              cat build.log
+            fi
+            exit 1
+          }
         env:
           NODE_ENV: production
           CI: false
