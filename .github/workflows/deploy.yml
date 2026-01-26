@@ -29,7 +29,7 @@ jobs:
           rm -rf node_modules
           rm -rf .cache
           rm -rf public
-          npm install --legacy-peer-deps
+          npm ci --legacy-peer-deps
 
       - name: Clean Gatsby cache
         run: npm run clean || echo "Clean completed (may have warnings)"
@@ -68,7 +68,7 @@ jobs:
           echo "✓ Build output verified"
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -77,6 +77,4 @@ jobs:
           force_orphan: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          keep_files: false
-          cname: false
 
