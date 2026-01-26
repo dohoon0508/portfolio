@@ -58,7 +58,7 @@ jobs:
         env:
           NODE_ENV: production
           CI: false
-          NODE_OPTIONS: '--max-old-space-size=4096'
+          NODE_OPTIONS: '--require=./scripts/node-polyfills.js --max-old-space-size=4096'
 
       - name: Check build output
         run: |
