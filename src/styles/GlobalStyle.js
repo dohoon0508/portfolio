@@ -148,12 +148,30 @@ const GlobalStyle = createGlobalStyle`
     padding: 100px 0;
     max-width: 1000px;
 
+    &:not(#hero) {
+      background-color: white;
+      border-radius: 12px;
+      padding: 60px 50px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      margin-bottom: 40px;
+    }
+
     @media (max-width: 768px) {
       padding: 80px 0;
+
+      &:not(#hero) {
+        padding: 50px 30px;
+        margin-bottom: 30px;
+      }
     }
 
     @media (max-width: 480px) {
       padding: 60px 0;
+
+      &:not(#hero) {
+        padding: 40px 20px;
+        margin-bottom: 20px;
+      }
     }
   }
 
@@ -168,6 +186,31 @@ const GlobalStyle = createGlobalStyle`
     color: var(--lightest-slate);
     line-height: 1.1;
   }
+
+  section:not(#hero) {
+    color: #000000;
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #000000;
+    }
+
+    p, li {
+      color: #000000;
+    }
+
+    .numbered-heading:before {
+      background-color: var(--primary-yellow) !important;
+      color: var(--primary-blue) !important;
+      font-weight: 700 !important;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    a {
+      color: var(--primary-blue);
+    }
+  }
+
 
   .big-heading {
     margin: 0;
@@ -194,10 +237,13 @@ const GlobalStyle = createGlobalStyle`
       counter-increment: section;
       content: '0' counter(section) '.';
       margin-right: 10px;
-      color: var(--green);
+      background-color: var(--primary-yellow);
+      color: var(--primary-blue);
       font-family: var(--font-mono);
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
-      font-weight: 400;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
 
       @media (max-width: 480px) {
         margin-bottom: -3px;
@@ -261,7 +307,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: var(--green);
+      color: var(--primary-blue);
     }
 
     &.inline-link {
@@ -292,6 +338,7 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     margin: 0 0 15px 0;
+    color: #000000;
 
     &:last-child,
     &:last-of-type {

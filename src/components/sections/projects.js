@@ -11,6 +11,24 @@ const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white;
+  border-radius: 12px;
+  padding: 60px 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin: 0 auto 40px;
+  color: #000000;
+  width: 100%;
+  max-width: 1200px;
+
+  @media (max-width: 768px) {
+    padding: 50px 30px;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 20px;
+    margin-bottom: 20px;
+  }
 
   h2 {
     font-size: clamp(24px, 5vw, var(--fz-heading));
@@ -81,7 +99,7 @@ const StyledProject = styled.li`
     margin-bottom: 35px;
 
     .folder {
-      color: var(--green);
+      color: var(--primary-blue);
       svg {
         width: 40px;
         height: 40px;
@@ -265,10 +283,10 @@ const Projects = () => {
 
   return (
     <StyledProjectsSection>
-      <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
+      <h2 ref={revealTitle}>다른 주목할 만한 프로젝트</h2>
 
       <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
-        view the archive
+        아카이브 보기
       </Link>
 
       <ul className="projects-grid">
@@ -303,7 +321,7 @@ const Projects = () => {
       </ul>
 
       <button className="more-button" onClick={() => setShowMore(!showMore)}>
-        Show {showMore ? 'Less' : 'More'}
+        {showMore ? '간략히' : '더 보기'}
       </button>
     </StyledProjectsSection>
   );

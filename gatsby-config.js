@@ -2,9 +2,9 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Brittany Chiang',
+    title: 'Hwang DoHoon',
     description:
-      'Brittany Chiang is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.',
+      'Hwang DoHoon은 탁월한 디지털 경험을 구축(그리고 가끔 디자인)하는 데 특화된 소프트웨어 엔지니어입니다.',
     siteUrl: 'https://brittanychiang.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@bchiang7',
@@ -20,8 +20,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Brittany Chiang',
-        short_name: 'Brittany Chiang',
+        name: 'Hwang DoHoon',
+        short_name: 'DoHoon',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,

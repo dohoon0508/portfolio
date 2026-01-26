@@ -5,18 +5,29 @@ import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledContactSection = styled.section`
-  max-width: 600px;
-  margin: 0 auto 100px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
   text-align: center;
+  background-color: white;
+  border-radius: 12px;
+  padding: 60px 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  color: #000000;
 
   @media (max-width: 768px) {
-    margin: 0 auto 50px;
+    padding: 50px 30px;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 20px;
+    margin-bottom: 20px;
   }
 
   .overline {
     display: block;
     margin-bottom: 20px;
-    color: var(--green);
+    color: var(--primary-blue);
     font-family: var(--font-mono);
     font-size: var(--fz-md);
     font-weight: 400;
@@ -55,17 +66,15 @@ const Contact = () => {
 
   return (
     <StyledContactSection id="contact" ref={revealContainer}>
-      <h2 className="numbered-heading overline">What’s Next?</h2>
-
-      <h2 className="title">Get In Touch</h2>
+      <h2 className="numbered-heading">연락주세요</h2>
 
       <p>
-        Although I’m not currently looking for any new opportunities, my inbox is always open.
-        Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+        현재 새로운 기회를 찾고 있지는 않지만, 제 이메일은 항상 열려있습니다.
+        질문이 있으시거나 그냥 인사하고 싶으시다면, 최선을 다해 답변드리겠습니다!
       </p>
 
       <a className="email-link" href={`mailto:${email}`}>
-        Say Hello
+        인사하기
       </a>
     </StyledContactSection>
   );

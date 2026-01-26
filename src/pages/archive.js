@@ -148,23 +148,23 @@ const ArchivePage = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <Helmet title="Archive" />
+      <Helmet title="아카이브" />
 
       <main>
         <header ref={revealTitle}>
-          <h1 className="big-heading">Archive</h1>
-          <p className="subtitle">A big list of things I’ve worked on</p>
+          <h1 className="big-heading">아카이브</h1>
+          <p className="subtitle">제가 작업한 것들의 큰 목록</p>
         </header>
 
         <StyledTableContainer ref={revealTable}>
           <table>
             <thead>
               <tr>
-                <th>Year</th>
-                <th>Title</th>
-                <th className="hide-on-mobile">Made at</th>
-                <th className="hide-on-mobile">Built with</th>
-                <th>Link</th>
+                <th>연도</th>
+                <th>제목</th>
+                <th className="hide-on-mobile">제작 장소</th>
+                <th className="hide-on-mobile">사용 기술</th>
+                <th>링크</th>
               </tr>
             </thead>
             <tbody>

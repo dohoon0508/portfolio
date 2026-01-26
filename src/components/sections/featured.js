@@ -7,6 +7,27 @@ import { srConfig } from '@config';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
+const StyledFeaturedSection = styled.section`
+  background-color: white;
+  border-radius: 12px;
+  padding: 60px 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+  color: #000000;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+
+  @media (max-width: 768px) {
+    padding: 50px 30px;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 20px;
+    margin-bottom: 20px;
+  }
+`;
+
 const StyledProjectsGrid = styled.ul`
   ${({ theme }) => theme.mixins.resetList};
 
@@ -117,7 +138,7 @@ const StyledProject = styled.li`
 
   .project-overline {
     margin: 10px 0;
-    color: var(--green);
+      color: var(--primary-blue);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
     font-weight: 400;
@@ -256,7 +277,7 @@ const StyledProject = styled.li`
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green);
+      background-color: var(--primary-blue);
       border-radius: var(--border-radius);
       vertical-align: middle;
 
@@ -346,9 +367,9 @@ const Featured = () => {
   }, []);
 
   return (
-    <section id="projects">
+    <StyledFeaturedSection id="projects">
       <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
+        제가 만든 것들
       </h2>
 
       <StyledProjectsGrid>
@@ -362,7 +383,7 @@ const Featured = () => {
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <div>
-                    <p className="project-overline">Featured Project</p>
+                    <p className="project-overline">주요 프로젝트</p>
 
                     <h3 className="project-title">
                       <a href={external}>{title}</a>
@@ -384,7 +405,7 @@ const Featured = () => {
                     <div className="project-links">
                       {cta && (
                         <a href={cta} aria-label="Course Link" className="cta">
-                          Learn More
+                          더 알아보기
                         </a>
                       )}
                       {github && (
@@ -410,7 +431,7 @@ const Featured = () => {
             );
           })}
       </StyledProjectsGrid>
-    </section>
+    </StyledFeaturedSection>
   );
 };
 

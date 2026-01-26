@@ -1,14 +1,14 @@
 module.exports = {
-  email: 'brittany.chiang@gmail.com',
+  email: 'your.email@example.com', // 실제 이메일 주소로 변경해주세요
 
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/bchiang7',
+      url: 'https://github.com/dohoon0508',
     },
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/bchiang7',
+      url: 'https://www.instagram.com/dohoon_i',
     },
     {
       name: 'Twitter',
@@ -16,7 +16,7 @@ module.exports = {
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/bchiang7',
+      url: 'https://www.linkedin.com/in/dohoon-hwang-86736733a/',
     },
     {
       name: 'Codepen',
@@ -26,19 +26,19 @@ module.exports = {
 
   navLinks: [
     {
-      name: 'About',
+      name: '소개',
       url: '/#about',
     },
     {
-      name: 'Experience',
+      name: '경력',
       url: '/#jobs',
     },
     {
-      name: 'Work',
+      name: '프로젝트',
       url: '/#projects',
     },
     {
-      name: 'Contact',
+      name: '연락',
       url: '/#contact',
     },
   ],
