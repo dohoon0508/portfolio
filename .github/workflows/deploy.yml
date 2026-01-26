@@ -26,10 +26,14 @@ jobs:
 
       - name: Clean install
         run: |
+          echo "=== Starting clean install ==="
           rm -rf node_modules
           rm -rf .cache
           rm -rf public
+          echo "=== Installing dependencies ==="
           npm install --legacy-peer-deps
+          echo "=== Installation completed ==="
+          npm list --depth=0 || echo "Warning: Some dependencies may have issues"
 
       - name: Clean Gatsby cache
         run: |
@@ -38,8 +42,19 @@ jobs:
 
       - name: Build
         run: |
-          echo "Starting Gatsby build with prefix-paths..."
-          npx gatsby build --prefix-paths
+          echo "=== Starting Gatsby build with prefix-paths ==="
+          echo "Node version: $(node --version)"
+          echo "NPM version: $(npm --version)"
+          echo "Gatsby version: $(npx gatsby --version || echo 'Not found')"
+          npx gatsby build --prefix-paths 2>&1 | tee build.log
+          BUILD_EXIT_CODE=${PIPESTATUS[0]}
+          if [ $BUILD_EXIT_CODE -ne 0 ]; then
+            echo "=== Build failed with exit code $BUILD_EXIT_CODE ==="
+            echo "=== Build log ==="
+            cat build.log || echo "No build.log found"
+            exit $BUILD_EXIT_CODE
+          fi
+          echo "=== Build completed successfully ==="
         env:
           NODE_ENV: production
           CI: false
