@@ -35,7 +35,7 @@ jobs:
         run: npm run clean
 
       - name: Build
-        run: npm run build -- --prefix-paths 2>&1 | tee build.log || (cat build.log && exit 1)
+        run: npx gatsby build --prefix-paths 2>&1 | tee build.log || (cat build.log && exit 1)
         env:
           NODE_ENV: production
           CI: false
@@ -43,12 +43,20 @@ jobs:
 
       - name: Check build output
         run: |
-          echo "Checking public directory..."
-          ls -la public/ || echo "public directory not found"
+          echo "=== Checking public directory ==="
+          ls -la public/ || (echo "ERROR: public directory not found!" && exit 1)
+          echo ""
+          echo "=== Checking for index.html ==="
           if [ ! -f public/index.html ]; then
             echo "ERROR: index.html not found in public directory!"
+            echo "Files in public/:"
+            ls -la public/ | head -20
             exit 1
           fi
+          echo "✓ index.html found"
+          echo ""
+          echo "=== Build output summary ==="
+          echo "Total files: $(find public -type f | wc -l)"
           echo "✓ Build output verified"
 
       - name: Deploy to GitHub Pages
