@@ -35,7 +35,7 @@ jobs:
         run: npm run clean
 
       - name: Build
-        run: npm run build 2>&1 | tee build.log || (cat build.log && exit 1)
+        run: npm run build -- --prefix-paths 2>&1 | tee build.log || (cat build.log && exit 1)
         env:
           NODE_ENV: production
           CI: false
@@ -45,7 +45,11 @@ jobs:
         run: |
           echo "Checking public directory..."
           ls -la public/ || echo "public directory not found"
-          ls -la public/index.html || echo "index.html not found"
+          if [ ! -f public/index.html ]; then
+            echo "ERROR: index.html not found in public directory!"
+            exit 1
+          fi
+          echo "✓ Build output verified"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -53,8 +57,10 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          publish_branch: gh-pages
           force_orphan: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           keep_files: false
+          cname: false
 
