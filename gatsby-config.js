@@ -17,7 +17,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-robots-txt`,
+    // `gatsby-plugin-robots-txt`, // Gatsby 5 전용 - 임시 제거
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -30,7 +30,7 @@ module.exports = {
         icon: 'src/images/logo.png',
       },
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`, // Node 18과 충돌 - 임시 제거
     {
       resolve: `gatsby-source-filesystem`,
       options: {
