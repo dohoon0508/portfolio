@@ -41,6 +41,12 @@ jobs:
           CI: false
           NODE_OPTIONS: '--max-old-space-size=4096'
 
+      - name: Check build output
+        run: |
+          echo "Checking public directory..."
+          ls -la public/ || echo "public directory not found"
+          ls -la public/index.html || echo "index.html not found"
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
@@ -50,4 +56,5 @@ jobs:
           force_orphan: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
+          keep_files: false
 
