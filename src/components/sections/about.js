@@ -40,6 +40,10 @@ const StyledText = styled.div`
     color: #000000;
   }
 
+  .highlight {
+    color: var(--hero-accent);
+  }
+
   ul.skills-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(140px, 200px));
@@ -147,7 +151,7 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  const skills = ['AI/ML', 'RAG', 'OpenAI API', 'Gemini API', 'Python', 'React'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -157,29 +161,26 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              안녕하세요! 제 이름은 DoHoon이고 인터넷에 존재하는 것들을 만드는 것을 즐깁니다.
-              웹 개발에 대한 제 관심은 2012년 커스텀 Tumblr 테마를 편집해보기로 결정했을 때 시작되었습니다
-              — 커스텀 리블로그 버튼을 만들어보면서 HTML &amp; CSS에 대해 많이 배웠습니다!
+              문제나 비효율을 발견하고 AI를 통해 최적화하는 과정을 즐깁니다. 세명테크에서 품질 관리
+              업무의 흐름을 분석하여,{' '}
+              <span className="highlight">
+                기존 6시간이 소요되던 프로세스를 AI 자동화로 10분 이내로 단축하였습니다.
+              </span>
             </p>
 
             <p>
-              지금까지 저는{' '}
-              <a href="https://us.mullenlowe.com/">광고 대행사</a>,{' '}
-              <a href="https://starry.com/">스타트업</a>,{' '}
-              <a href="https://www.apple.com/">대기업</a>, 그리고{' '}
-              <a href="https://scout.camd.northeastern.edu/">학생 주도 디자인 스튜디오</a>에서 일할 기회를 가졌습니다.
-              요즘은 다양한 클라이언트를 위해 접근 가능하고 포용적인 제품과 디지털 경험을 만드는 데 집중하고 있습니다.
+              인공지능 학술 동아리 JBIG에서 기술적 토대를 닦았으며, 이후 전국 단위 대회에서{' '}
+              <span className="highlight">빅데이터 콘테스트</span>(Gemini RAG/멀티 에이전트 개발)와{' '}
+              <span className="highlight">데이터 크리에이터</span> 캠프(모델 성능 향상) 수상하며
+              실전 역량을 입증했습니다. 창업 동아리 해시태그를 시작으로 창업 관련 대회 수상 및{' '}
+              <span className="highlight">SW학생창업지원</span>을 통해 OpenAI API 기반의 학습 보조
+              서비스를 개발하였습니다.
             </p>
 
             <p>
-              최근에는 Node &amp; React를 사용하여 Spotify API로 웹 앱을 구축하는 데 필요한 모든 것을 다루는{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                강의를 출시
-              </a>
-              했습니다.
+              이외에도 5,000명의 팔로워를 보유한 맛집 인스타그램 운영과 의류 브랜드 창업 등을 통해
+              사용자의 반응을 읽고 시장의 흐름을 파악하는 감각을 익혀왔습니다.
             </p>
-
-            <p>최근에 작업하고 있는 기술들입니다:</p>
           </div>
 
           <ul className="skills-list">
