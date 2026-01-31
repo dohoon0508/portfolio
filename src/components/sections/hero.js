@@ -58,7 +58,7 @@ const StyledHeroSection = styled.section`
     max-width: 560px;
     font-size: var(--fz-lg);
     font-weight: 500;
-    line-height: 1.85;
+    line-height: 1.55;
     color: var(--dark-slate);
 
     strong {
