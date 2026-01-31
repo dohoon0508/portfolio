@@ -1,5 +1,5 @@
 module.exports = {
-  email: 'your.email@example.com', // 실제 이메일 주소로 변경해주세요
+  email: 'dohoon0508l@google.com', // 실제 이메일 주소로 변경해주세요
 
   socialMedia: [
     {
@@ -11,8 +11,8 @@ module.exports = {
       url: 'https://www.instagram.com/dohoon_i',
     },
     {
-      name: 'Twitter',
-      url: 'https://twitter.com/bchiang7',
+      name: 'Velog',
+      url: 'https://velog.io/@dohoon0508',
     },
     {
       name: 'Linkedin',

@@ -35,9 +35,20 @@ const StyledSocialList = styled.ul`
         transform: translateY(-3px);
       }
 
-      svg {
+      svg,
+      img {
         width: 20px;
         height: 20px;
+      }
+      /* Velog 아이콘: 호버 시 다른 아이콘처럼 파란색으로 */
+      .icon-velog {
+        filter: brightness(0) saturate(100%); /* 기본: 회색톤 */
+        transition: filter var(--transition);
+      }
+      &:hover .icon-velog,
+      &:focus .icon-velog {
+        filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%)
+          hue-rotate(226deg) brightness(104%) contrast(97%);
       }
     }
   }

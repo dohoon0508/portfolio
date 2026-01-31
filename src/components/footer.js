@@ -32,9 +32,19 @@ const StyledSocialLinks = styled.div`
 
     a {
       padding: 10px;
-      svg {
+      svg,
+      img {
         width: 20px;
         height: 20px;
+      }
+      .icon-velog {
+        filter: brightness(0) saturate(100%);
+        transition: filter var(--transition);
+      }
+      &:hover .icon-velog,
+      &:focus .icon-velog {
+        filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%)
+          hue-rotate(226deg) brightness(104%) contrast(97%);
       }
     }
   }
