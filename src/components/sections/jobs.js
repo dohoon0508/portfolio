@@ -185,7 +185,7 @@ const Jobs = () => {
     query {
       jobs: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/jobs/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { fields: [frontmatter___date], order: ASC }
       ) {
         edges {
           node {
@@ -260,7 +260,7 @@ const Jobs = () => {
 
   return (
     <StyledJobsSection id="jobs" ref={revealContainer}>
-      <h2 className="numbered-heading">경력</h2>
+      <h2 className="numbered-heading">이력</h2>
 
       <div className="inner">
         <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
@@ -289,7 +289,7 @@ const Jobs = () => {
           {jobsData &&
             jobsData.map(({ node }, i) => {
               const { frontmatter, html } = node;
-              const { title, url, company, range } = frontmatter;
+              const { title, range } = frontmatter;
 
               return (
                 <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
@@ -300,15 +300,7 @@ const Jobs = () => {
                     aria-labelledby={`tab-${i}`}
                     aria-hidden={activeTabId !== i}
                     hidden={activeTabId !== i}>
-                    <h3>
-                      <span>{title}</span>
-                      <span className="company">
-                        &nbsp;@&nbsp;
-                        <a href={url} className="inline-link">
-                          {company}
-                        </a>
-                      </span>
-                    </h3>
+                    <h3>{title}</h3>
 
                     <p className="range">{range}</p>
 

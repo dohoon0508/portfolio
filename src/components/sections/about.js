@@ -65,7 +65,7 @@ const StyledText = styled.div`
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--primary-yellow);
+        color: var(--hero-accent);
         font-size: var(--fz-sm);
         line-height: 12px;
       }

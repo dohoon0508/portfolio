@@ -30,7 +30,7 @@ module.exports = {
       url: '/#about',
     },
     {
-      name: '경력',
+      name: '이력',
       url: '/#jobs',
     },
     {
