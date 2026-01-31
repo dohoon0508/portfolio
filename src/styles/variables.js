@@ -2,22 +2,23 @@ import { css } from 'styled-components';
 
 const variables = css`
   :root {
-    --dark-navy: #E0E0E0;
-    --navy: #EEEEEE;
-    --light-navy: #F5F5F5;
-    --lightest-navy: #FAFAFA;
+    --dark-navy: #e0e0e0;
+    --navy: #eeeeee;
+    --light-navy: #f5f5f5;
+    --lightest-navy: #fafafa;
     --navy-shadow: rgba(2, 12, 27, 0.7);
     --dark-slate: #000000;
     --slate: #000000;
     --light-slate: #333333;
     --lightest-slate: #000000;
     --white: #ffffff;
-    --green: #2951CD;
+    --green: #2951cd;
     --green-tint: rgba(100, 255, 218, 0.1);
     --pink: #f57dff;
     --blue: #57cbff;
-    --primary-blue: #2951CD;
-    --primary-yellow: #E4F010;
+    --primary-blue: #2951cd;
+    --hero-accent: #3b82f6;
+    --primary-yellow: #e4f010;
 
     --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
       sans-serif;
