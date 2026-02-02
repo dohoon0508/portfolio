@@ -172,6 +172,16 @@ const StyledTabPanel = styled.div`
     }
   }
 
+  /* 각 항목(### 블록) 사이 줄간격 */
+  ul + h3 {
+    margin-top: 1.25em;
+  }
+
+  /* 3번(수상·대외활동) 탭 항목 줄간격 더 넓게 */
+  &[data-tab-index='2'] ul + h3 {
+    margin-top: 2em;
+  }
+
   .range {
     margin-bottom: 25px;
     color: var(--light-slate);
@@ -294,15 +304,16 @@ const Jobs = () => {
               return (
                 <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
                   <StyledTabPanel
+                    data-tab-index={i}
                     id={`panel-${i}`}
                     role="tabpanel"
                     tabIndex={activeTabId === i ? '0' : '-1'}
                     aria-labelledby={`tab-${i}`}
                     aria-hidden={activeTabId !== i}
                     hidden={activeTabId !== i}>
-                    <h3>{title}</h3>
+                    {title && <h3>{title}</h3>}
 
-                    <p className="range">{range}</p>
+                    {range && <p className="range">{range}</p>}
 
                     <div dangerouslySetInnerHTML={{ __html: html }} />
                   </StyledTabPanel>
